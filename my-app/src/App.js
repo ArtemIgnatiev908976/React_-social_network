@@ -1,18 +1,17 @@
-import React, { useLayoutEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './Header.js'
+import Technologies from './Technologies.js'
 
 const App = () => {
-    return (
-      <div className = "App" > //стрелочная функция возращает разметку
+    return (<div>
+      <Header />
+      <Technologies />
+      </div>
 
-        <ul>
-         <li >123 < /li>
-         <li> 231< /li >
-        </ul>
 
-        </div>
     );
 }
+
 
 export default App;
