@@ -10,10 +10,8 @@ const MyPosts = () => {
 
         <div className={s.posts}>
 
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          <Post message='hi my first post' />
+          <Post message='hi my second post' />
 
 
         </div>
