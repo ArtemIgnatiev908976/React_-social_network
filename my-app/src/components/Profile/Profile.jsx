@@ -13,7 +13,7 @@ const Profile = (props) => {
 
           <ProfileInfo />
 
-          <MyPosts posts={props.posts}/>
+          <MyPosts posts={props.state.posts}/>
         </div>
     )
 }
