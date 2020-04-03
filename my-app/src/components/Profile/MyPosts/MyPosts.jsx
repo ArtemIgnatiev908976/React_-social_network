@@ -23,7 +23,6 @@ const MyPosts = () => {
 
         <div className={s.posts}>
 
-
             {postsElements}
 
         </div>
