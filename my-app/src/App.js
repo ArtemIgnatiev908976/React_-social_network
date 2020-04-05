@@ -5,7 +5,7 @@ import Navbar from './components/NavBar/Navbar.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter,Route} from "react-router-dom";
-import {addPost} from "./redux/state";
+import {addPost} from "./redux/store";
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
 
 const App = (props) => {
