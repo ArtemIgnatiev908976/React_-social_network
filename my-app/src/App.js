@@ -7,6 +7,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter,Route} from "react-router-dom";
 import {addPost} from "./redux/store";
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
 
@@ -21,7 +22,7 @@ const App = (props) => {
 
                 <div className='app-wrapper-content'>
 
-                    <Route path={'/dialogs'} render={ () => <Dialogs store={props.store} />}/>
+                    <Route path={'/dialogs'} render={ () => <DialogsContainer store={props.store} />}/>
                     <Route path={'/profile'} render={ () => <Profile store={props.store}/>}/>
 
                 </div>
