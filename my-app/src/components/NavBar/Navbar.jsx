@@ -11,6 +11,7 @@ const Navbar = () =>{
     <div className={s.item}><NavLink to='/profile'>News</NavLink></div>
     <div className={s.item}><NavLink to='/profile'>Music</NavLink></div>
     <div className={s.item}><NavLink to='/profile'>Settings</NavLink></div>
+    <div className={s.item}><NavLink to='/users'>Users</NavLink></div>
   </nav>
 }
 
