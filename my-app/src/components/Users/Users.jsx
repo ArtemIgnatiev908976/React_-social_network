@@ -1,51 +1,18 @@
 import React from "react";
 import styles from "./users.module.css";
-
+import * as axios from  'axios';
+import userPhoto from '../../assets/images/user.png';
 let Users = (props) => {
     if (props.users.length === 0) {
-        props.setUsers([
-            {
-                id: 1,
-                photoUrl: 'https://windowstips.ru/wp-content/uploads/2016/06/Icon-User.png',
-                followed: false,
-                fullName: 'Dmitry',
-                status: "I am a boss",
-                location: {city: 'Minsk', country: 'Belarus'}
-            },
-            {
-                id: 2,
-                photoUrl: 'https://windowstips.ru/wp-content/uploads/2016/06/Icon-User.png',
-                followed: true,
-                fullName: 'Artem',
-                status: "I am a boss1",
-                location: {city: 'Samara', country: 'Russia'}
-            },
-            {
-                id: 3,
-                photoUrl: 'https://windowstips.ru/wp-content/uploads/2016/06/Icon-User.png',
-                followed: false,
-                fullName: 'Ivan',
-                status: "I am a boss2",
-                location: {city: 'Moscow', country: 'Russia'}
-            },
-            {
-                id: 4,
-                photoUrl: 'https://windowstips.ru/wp-content/uploads/2016/06/Icon-User.png',
-                followed: false,
-                fullName: 'Maha',
-                status: "I am a boss3",
-                location: {city: 'Minsk3', country: 'Belarus'}
-            },
-            {
-                id: 5,
-                photoUrl: 'https://windowstips.ru/wp-content/uploads/2016/06/Icon-User.png',
-                followed: false,
-                fullName: 'Lena',
-                status: "I am a boss4",
-                location: {city: 'Minsk4', country: 'Belarus'}
-            }
 
-        ])
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response =>{
+
+            props.setUsers(response.data.items);
+
+    });
+
+
+
     }
 
 
@@ -58,7 +25,7 @@ let Users = (props) => {
 
               <div>
 
-                  <img src={u.photoUrl} className={styles.userPhoto} alt=""/>
+                  <img src={u.photos.small != null ? u.photos.small :userPhoto} className={styles.userPhoto} alt=""/>
               </div>
               <div>
                   {u.followed
@@ -74,12 +41,12 @@ let Users = (props) => {
                       </span>
                 <span>
                       <span>
-                      <div>{u.fullName}</div><div>{u.status}</div>
+                      <div>{u.name}</div><div>{u.status}</div>
                       </span>
                       <span>
 
-                      <div>{u.location.country}</div>
-                      <div>{u.location.city}</div>
+                      <div>{"u.location.country"}</div>
+                      <div>{"u.location.city"}</div>
                       </span>
 
 
