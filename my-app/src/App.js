@@ -9,6 +9,8 @@ import {addPost} from "./redux/store";
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
+import UsersContainer from "./components/Users/UsersContainer";
+
 const App = (props) => {
 
 
@@ -24,6 +26,7 @@ const App = (props) => {
 
                     <Route path={'/dialogs'} render={ () => <DialogsContainer  />}/>
                     <Route path={'/profile'} render={ () => <Profile />}/>
+                    <Route path={'/users'} render={ () => <UsersContainer />}/>
 
                 </div>
 
