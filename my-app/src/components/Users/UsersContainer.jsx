@@ -2,12 +2,12 @@ import React from "react";
 import {connect} from "react-redux";
 
 import {
-    followAC,
-    setCurrentPageAC,
-    setUsersAC,
-    setUsersTotalCountAC,
-    toggleIsFetchingAC,
-    unfollowAC
+    follow,
+    setCurrentPage,
+    setUsers,
+    setTotalUsersCount,
+    toggleIsFetching,
+    unfollow
 } from "../../redux/users-reducer";
 import * as axios from "axios";
 import Users from "./Users";
@@ -76,32 +76,46 @@ let mapStateToProps = (state) => {
 };
 
 
-let mapDispatchToProps = (dispatch) => {
+// let mapDispatchToProps = (dispatch) => {
+//
+//     return {
+//         follow: (usersId) => {
+//             dispatch(followAC(usersId));
+//         },
+//         unfollow: (usersId) => {
+//             dispatch(unfollowAC(usersId));
+//         },
+//         setUsers: (users) => {
+//             dispatch(setUsersAC(users));
+//         },
+//
+//         setCurrentPage: (pageNumber) => {
+//             dispatch(setCurrentPageAC(pageNumber));
+//         },
+//
+//         setTotalUsersCount: (totalCount) => {
+//             dispatch(setUsersTotalCountAC(totalCount));
+//         },
+//
+//             toggleIsFetching:(isFetching)=> {
+//
+//             dispatch(toggleIsFetchingAC(isFetching));
+//         }
+//     }
+// }
+//
 
-    return {
-        follow: (usersId) => {
-            dispatch(followAC(usersId));
-        },
-        unfollow: (usersId) => {
-            dispatch(unfollowAC(usersId));
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users));
-        },
 
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber));
-        },
+export default connect(mapStateToProps, {
+    follow,
 
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setUsersTotalCountAC(totalCount));
-        },
+    unfollow,
 
-            toggleIsFetching:(isFetching)=> {
+    setUsers,
 
-            dispatch(toggleIsFetchingAC(isFetching));
-        }
-    }
-}
+    setCurrentPage,
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+     setTotalUsersCount,
+
+    toggleIsFetching})
+(UsersContainer);
