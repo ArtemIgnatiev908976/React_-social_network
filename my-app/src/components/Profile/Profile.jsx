@@ -11,7 +11,7 @@ const Profile = (props) => {
 
     return (
         <div>Main content
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile} />
             <MyPostsContainer />
         </div>
     )
