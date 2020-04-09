@@ -1,8 +1,11 @@
-.content{
-  grid-area: c;
-  background-color: brown;
+.descriptionBlock {
+    padding: 10px;
 }
-.descriptionBlock{
 
-  padding: 15px;
+.mainPhoto {
+    max-width: 200px;
+}
+
+.contact {
+    padding-left: 10px;
 }
