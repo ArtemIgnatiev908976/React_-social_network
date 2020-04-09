@@ -1,46 +1,25 @@
-import React from "react";
-import s from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
+import React from 'react';
+import {sendMessageCreator} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
-
-// const DialogItem = (props) => {
-//     let path = "/dialogs/" + props.id;
-//     return (
-//
-//         <div className={s.dialog + ' ' + s.active}>
-//             <NavLink to={path}>{props.name}</NavLink>
-//         </div>
-//     )
-// }
-
-
-// const Message = (props) => {
-//
-//     return (
-//
-//         <div className={s.dialog}>{props.message}</div>
-//     )
-// }
-
+import {Redirect} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 let mapStateToProps = (state) => {
     return {
         dialogsPage: state.dialogsPage
     }
 }
-
 let mapDispatchToProps = (dispatch) => {
     return {
-        sendMessage: () => {
-            dispatch(sendMessageCreator());
-        },
-        updateNewMessageBody: (body) => {
-            dispatch(updateNewMessageBodyCreator(body));
+        sendMessage: (newMessageBody) => {
+            dispatch(sendMessageCreator(newMessageBody));
         }
     }
 }
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
-export default DialogsContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Dialogs);
